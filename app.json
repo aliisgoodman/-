@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/vmovie/vmovie",
+    "pages/index/index",
+    "pages/channellist/channellist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}
