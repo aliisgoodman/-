@@ -7,7 +7,7 @@
 		<van-tab title="发现">内容 1</van-tab>
 		<van-tab title="频道">
     <view class="wrap">
-			<view class="view" wx:for="{{channeldatas}}" data-listid="item"  bindtap="gochannellist" wx:key="*this">
+			<view class="view" wx:for="{{channeldatas}}" data-listid="{{item.cateid}}"  bindtap="gochannellist" wx:key="*this">
 				<image class="image" src="{{item.icon}}" mode="widthFix" />
 				<view class="text">
 					<text >#{{item.catename}}#</text></view>

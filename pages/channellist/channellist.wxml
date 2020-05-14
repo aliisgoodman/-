@@ -1,2 +1,13 @@
 <!--pages/channellist/channellist.wxml-->
-<text>pages/channellist/channellist.wxml</text>
+<!-- 使用模板 -->
+<listcomponent lists="{{listdatas}}"></listcomponent>
+<!-- 进入页面loadinbg -->
+<van-overlay show="{{ showoverlay }}" bind:click="onClickHide">
+	<view class="overlayloading">
+		<van-loading size="30px" vertical>加载中...</van-loading>
+	</view>
+</van-overlay>
+<!-- 下拉刷新loading -->
+<view class="downloading" hidden="{{showdown}}">
+<van-loading size="24px" color="#000" >加载中...</van-loading>
+</view>

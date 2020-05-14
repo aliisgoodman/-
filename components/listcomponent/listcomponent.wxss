@@ -1,0 +1,16 @@
+/* components/listcomponent/listcomponent.wxss */
+.wrap{
+  position: relative;
+}
+image{
+  display: block;
+  width: 100%;
+  filter: brightness(.7);
+}
+.son{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  color: aliceblue;
+}

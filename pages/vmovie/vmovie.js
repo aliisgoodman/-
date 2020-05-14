@@ -29,8 +29,6 @@ Page({
     })
   },
   gochannellist(e){
-    // console.log(e.currentTarget.dataset.listid);
-    
    wx.navigateTo({
      url: '../channellist/channellist?title='  + e.currentTarget.dataset.listid,
    })
@@ -44,13 +42,10 @@ Page({
     if (storagechanneldata) {
       storagechanneldata = JSON.parse(wx.getStorageSync('channeldata'))
       if (storagechanneldata.time > Date.now()) {
-        console.log('xxx');
-
         this.setData({
           channeldatas: storagechanneldata.datas
         })
       } else {
-        console.log('aaaa');
 
         this.getchanneldata()
       }

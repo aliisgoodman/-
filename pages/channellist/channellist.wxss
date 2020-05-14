@@ -1,1 +1,13 @@
 /* pages/channellist/channellist.wxss */
+.overlayloading{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.downloading{
+  display: flex;
+  justify-content: center;
+  
+}

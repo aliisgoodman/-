@@ -1,0 +1,33 @@
+<!--components/listcomponent/listcomponent.wxml-->
+<wxs module="tools">
+	var name = function(n) {
+		if (n) {
+			var arr = []
+			n.forEach(function( in , ele) {
+				arr.push( in .catename)
+			})
+			return arr.join()
+		}
+
+	}
+	var time = function(t) {
+		if (t) {
+			return Math.floor(t / 60) + "'" + t % 60 + '"'
+		}
+	}
+	module.exports = {
+		name: name,
+		time: time
+	}
+</wxs>
+
+
+<view class="wrap" wx:for="{{lists}}" wx:key="*this">
+	<image src=" {{item.image}}" />
+
+	<view class="son">
+		{{tools.name(item.cates) }}/{{tools.time(item.duration) }}
+		<view>{{item.title}}</view>
+	</view>
+
+</view>
