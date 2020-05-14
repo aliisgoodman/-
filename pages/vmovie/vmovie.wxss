@@ -2,6 +2,10 @@
 .van-nav-bar{
 padding-top: 0 !important;
 }
+.van-nav-bar__left,.van-nav-bar__right{
+  font-size: 10px !important;
+  color: white !important;
+}
 .van-tabs__wrap {
   max-width: 60%;
   margin: 0 auto;
@@ -38,3 +42,10 @@ justify-content: center;
 align-items: center;
 }
 
+/* 发现 */
+swiper{
+  height: 211px;
+}
+swiper .image{
+  filter: brightness(1);
+}

@@ -1,17 +1,34 @@
 <!--pages/vmovie/vmovie.wxml-->
 
-<van-nav-bar>
-	<van-icon name="circle" slot="left" />
-	<van-icon name="search" slot="right" />
-	<van-tabs active="{{ active }}" slot="title" animated>
-		<van-tab title="发现">内容 1</van-tab>
+<van-nav-bar left-text="{{days}}" right-text="{{times}}">
+
+	<!-- <van-icon name="circle" slot="left" />
+	<van-icon name="search" slot="right" /> -->
+	<van-tabs active="{{ active }}" slot="title" animated color="#afafaf">
+		<van-tab title="发现">
+			<swiper indicator-dots="true"  autoplay="true" circular="true" indicator-active-color="#fff">
+				<swiper-item wx:for="{{banner.list}}" wx:key="{{inedx}}">
+					<image class="image" src="{{item.image}}" mode="widthFix"></image>
+				</swiper-item>
+			</swiper>
+			<view class="today">今日</view>
+<listcomponent lists="{{today.list}}"></listcomponent>
+			<view class="today">热门</view>
+<listcomponent lists="{{hot.list}}"></listcomponent>
+			<view class="today">专题</view>
+<listcomponent lists="{{posts.list}}"></listcomponent>
+			<view class="today">day</view>
+
+
+		</van-tab>
 		<van-tab title="频道">
-    <view class="wrap">
-			<view class="view" wx:for="{{channeldatas}}" data-listid="{{item.cateid}}"  bindtap="gochannellist" wx:key="*this">
-				<image class="image" src="{{item.icon}}" mode="widthFix" />
-				<view class="text">
-					<text >#{{item.catename}}#</text></view>
-			</view></view>
+			<view class="wrap">
+				<view class="view" wx:for="{{channeldatas}}" data-listid="{{item.cateid}}" bindtap="gochannellist" wx:key="*this">
+					<image class="image" src="{{item.icon}}" mode="widthFix" />
+					<view class="text">
+						<text >#{{item.catename}}#</text></view>
+				</view>
+			</view>
 		</van-tab>
 		<van-tab title="我的">内容 3</van-tab>
 	</van-tabs>

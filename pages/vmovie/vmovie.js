@@ -5,8 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 1,
-    channeldatas: []
+    days: `${new Date().getMonth()+1}月${new Date().getDate()}日`,
+    times: `${new Date().getHours()}:${new Date().getMinutes()}`,
+    active: 0,
+    channeldatas: [],
+    album: [],
+    banner: [],
+    hot: [],
+    posts: [],
+    today: []
+  },
+  getindexdatas() {
+    wx.request({
+      url: 'https://api.kele8.cn/agent/https://app.vmovier.com/apiv3/index/index',
+      success: (res) => {
+
+        console.log(res.data.data);
+        this.setData({
+          album: res.data.data.album,
+          banner: res.data.data.banner,
+          hot: res.data.data.hot,
+          posts: res.data.data.posts,
+          today: res.data.data.today
+        })
+        wx.setStorage({
+          data: JSON.stringify({
+            time: Date.now() + 3 * 60 * 60 * 1000,
+            datas: res.data.data
+          }),
+          key: 'indexdatas',
+        })
+
+      }
+    })
   },
   getchanneldata() {
     wx.request({
@@ -28,16 +59,37 @@ Page({
       }
     })
   },
-  gochannellist(e){
-   wx.navigateTo({
-     url: '../channellist/channellist?title='  + e.currentTarget.dataset.listid,
-   })
-    
+  gochannellist(e) {
+    wx.navigateTo({
+      url: '../channellist/channellist?title=' + e.currentTarget.dataset.listid,
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 发现
+    let storageindexdatas = wx.getStorageSync('indexdatas')
+    if (storageindexdatas) {
+      storageindexdatas = JSON.parse(wx.getStorageSync('indexdatas'))
+      if (storageindexdatas.time > Date.now()) {
+        this.setData({
+          album: storageindexdatas.datas.album,
+          banner: storageindexdatas.datas.banner,
+          hot: storageindexdatas.datas.hot,
+          posts: storageindexdatas.datas.posts,
+          today: storageindexdatas.datas.today
+        })
+      } else {
+
+        this.getindexdatas()
+      }
+    } else {
+      this.getindexdatas()
+    }
+
+// 频道
     let storagechanneldata = wx.getStorageSync('channeldata')
     if (storagechanneldata) {
       storagechanneldata = JSON.parse(wx.getStorageSync('channeldata'))
@@ -66,7 +118,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    setInterval(() => {
+      this.setData({
+        days: `${new Date().getMonth()+1}月${new Date().getDate()}日`,
+        times: `${new Date().getHours()}:${new Date().getMinutes()}`,
+      })
 
+    }, 60000)
   },
 
   /**

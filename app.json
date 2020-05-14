@@ -2,12 +2,13 @@
   "pages": [
     "pages/vmovie/vmovie",
     "pages/index/index",
-    "pages/channellist/channellist"
+    "pages/channellist/channellist",
+    "pages/palying/palying"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "你的小视频",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

@@ -22,7 +22,8 @@
 </wxs>
 
 
-<view class="wrap" wx:for="{{lists}}" wx:key="*this">
+<view class="wrap" wx:for="{{lists}}" wx:key="*this" bindtap="goplaying" data-play="{{item}}">
+<slot></slot>
 	<image src=" {{item.image}}" />
 
 	<view class="son">
