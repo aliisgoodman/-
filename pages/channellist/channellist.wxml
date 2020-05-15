@@ -1,6 +1,6 @@
 <!--pages/channellist/channellist.wxml-->
 <!-- 使用模板 -->
-<listcomponent lists="{{listdatas}}"></listcomponent>
+<listcomponent lists="{{listdatas}}" hot="true"></listcomponent>
 <!-- 进入页面loadinbg -->
 <van-overlay show="{{ showoverlay }}" bind:click="onClickHide">
 	<view class="overlayloading">

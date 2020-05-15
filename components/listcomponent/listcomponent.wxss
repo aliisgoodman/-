@@ -2,16 +2,59 @@
 .wrap{
   position: relative;
 }
-image{
+.wrap image{
   display: block;
   width: 100%;
   filter: brightness(.7);
 }
-.son{
+.wrap .son{
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 20px;
   color: aliceblue;
   text-align: left;
+}
+.wrap .son view{
+  margin-top: 10px;
+}
+
+
+
+.bigwrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wraper{
+  position: relative;
+  width: 50%;
+}
+.wraper image{
+  display: block;
+  width: 100%;
+  filter: brightness(.7);
+}
+.wraper .soner{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: aliceblue;
+  text-align: left;
+  font-size: 10px;
+  line-height: 1em; 
+}
+.wraper .soner view{
+  padding: 10px 0;
+
+}
+.wraper:first-of-type .soner{
+  font-size: 16px;
+
+}
+.wraper:first-of-type{
+  width: 100% ;
+ 
 }

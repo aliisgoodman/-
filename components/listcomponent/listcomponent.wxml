@@ -21,9 +21,9 @@
 	}
 </wxs>
 
+<block wx:if="{{hot}}">
+<view class="wrap" wx:for="{{lists}}" wx:key="*this" bindtap="goplaying" data-playid="{{item.postid}}" >
 
-<view class="wrap" wx:for="{{lists}}" wx:key="*this" bindtap="goplaying" data-play="{{item}}">
-<slot></slot>
 	<image src=" {{item.image}}" />
 
 	<view class="son">
@@ -32,3 +32,19 @@
 	</view>
 
 </view>
+</block>
+
+<block wx:else>
+<view class="bigwrap" >
+	<view class="wraper" wx:for="{{lists}}" wx:key="*this" bindtap="goplaying" data-playid="{{item.postid}}">
+
+		<image src=" {{item.image}}" mode="widthFix" />
+
+		<view class="soner">
+			{{tools.name(item.cates) }}/{{tools.time(item.duration) }}
+			<view>{{item.title}}</view>
+		</view>
+
+	</view>
+</view>
+</block>

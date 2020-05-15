@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    lists:Array
+    lists:Array,
+    hot:Boolean
   },
 
   /**
@@ -19,10 +20,10 @@ Component({
    */
   methods: {
     goplaying(e){
-    //  wx.navigateTo({
-    //    url: '../../pages/palying/palying?paly=',
-    //  })
-      console.log(e);
+     wx.navigateTo({
+       url: '../../pages/palying/palying?palyid=' + e.currentTarget.dataset.playid,
+     })
+      // console.log(e.currentTarget.dataset.playid);
       
     }
   }
