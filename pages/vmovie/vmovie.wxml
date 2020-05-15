@@ -7,7 +7,7 @@
 	<van-tabs active="{{ active }}" slot="title" animated color="#afafaf">
 		<van-tab title="发现">
 			<swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#fff">
-				<swiper-item wx:for="{{banner.list}}" wx:key="{{inedx}}">
+				<swiper-item wx:for="{{banner.list}}" wx:key="{{inedx}}" bindtap="gopalying" data-playid="{{item.extra_data.app_banner_param}}">
 					<image class="image" src="{{item.image}}" mode="widthFix"></image>
 				</swiper-item>
 			</swiper>
@@ -17,13 +17,13 @@
 			<listcomponent lists="{{hot.list}}"></listcomponent>
 			<view class="today">专题</view>
 			<swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#fff">
-				<swiper-item wx:for="{{album.list}}" wx:key="{{inedx}}" class="album">
+				<swiper-item wx:for="{{album.list}}" wx:key="{{inedx}}" class="album" bindtap="gopalying" data-playid="{{item.postid}}">
 					<image class="image" src="{{item.image}}" mode="widthFix"></image>
 					<view class="abc">
 						<view class="title">{{album.selection_title}}</view>
 						<view class="henxiang"></view>
 						<view class="a">{{item.title}}</view>
-						
+
 						<view class="b">{{item.app_fu_title}}</view>
 					</view>
 				</swiper-item>

@@ -1,43 +1,49 @@
 /* pages/palying/palying.wxss */
-#myVideo{
+#myVideo {
   width: 100%;
 }
-.title{
+
+.title {
   text-align: center;
   font-size: 18px;
   font-weight: 700;
-  margin:20px 0 15px 0;
+  margin: 20px 0 15px 0;
 }
-.cate{
+
+.cate {
   text-align: center;
   font-size: 14px;
 }
-.intro{
+
+.intro {
   padding: 20px 10px;
   font-size: 14px;
   line-height: 2em;
 }
-.line{
+
+.line {
   width: 100%;
   height: 2px;
   background-color: #ccc;
 }
 
-.scroll-view{
+.scroll-view {
   padding: 20px 0 0 15px;
 }
-.scroll-view_H{
+
+.scroll-view_H {
   white-space: nowrap;
 
 }
-.imagewrap{
+
+.imagewrap {
   display: inline-block;
   width: 40%;
   margin-right: 15px;
   position: relative;
 }
 
-.textwrap{
+.textwrap {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -45,7 +51,8 @@
   font-size: 10px;
   padding: 8px;
 }
-.text{
+
+.text {
   width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -53,17 +60,68 @@
   margin-top: 10px;
 }
 
-image{
+image {
   width: 100%;
   filter: brightness(.7);
 }
-.name{
+
+.name {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  padding: 15px  8px 15px 0;
+  padding: 15px 8px 15px 0;
 
 }
-.namemore{
+
+.namemore {
   font-weight: 600;
+}
+
+.comment {
+  padding: 15px 5px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.top image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.username {
+  margin: 0 10px;
+}
+
+.top1 {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top2 {
+  padding: 0 10px;
+
+}
+
+.content {
+  font-size: 14px;
+  padding-left: 45px;
+}
+
+.linedown {
+  padding: 15px 0 15px 5px;
+
+  font-weight: 600;
+}
+
+.line1{
+  margin-top: 20px;
 }

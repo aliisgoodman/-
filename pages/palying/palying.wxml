@@ -1,22 +1,51 @@
 <!--pages/palying/palying.wxml-->
+<wxs module="tools">
+	var time = function(t) {
+		if (t) {
+			return Math.floor(t / 60) + "'" + (t % 60 > 9 ? t % 60 : '0' + t % 60) + '"'
+		}
+	}
+	
+	module.exports = {
+		foo: time,
+	};
+</wxs>
 
-<video id="myVideo" poster="{{playdatas.image}}" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls object-fit="fill"></video>
+
+<video id="myVideo" poster="{{playdatas.image}}" src="https://api.kele8.cn/pic/{{playdatas.content_video[0].progressive[2].url}}" controls object-fit="fill"></video>
 <view class="title">{{playdatas.title}}</view>
-<view class="cate">{{playdatas.cate}} / {{playdatas.duration}}</view>
+<view class="cate">{{playdatas.cate}} / {{tools.foo(playdatas.duration)}}</view>
 <view class="intro">{{playdatas.intro}}</view>
 <view class="line"></view>
 
 <view wx:for="{{playdatas.relate_video}}" class="scroll-view">
 	<view class="name"><text class="namemore">{{item.name}}</text><text>more</text></view>
-	<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%" >
+	<scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
 		<view class="imagewrap" wx:for="{{item.list}}" wx:for-item="sonitem">
 			<image src="{{sonitem.image}}" mode="widthFix"></image>
 			<view class="textwrap">
-				{{sonitem.duration}}
+				{{tools.foo(sonitem.duration)}}
 				<view class="text">
 					{{sonitem.title}}
 				</view>
 			</view>
 		</view>
 	</scroll-view>
+</view>
+
+<view class="line line1"></view>
+
+
+
+<view class="linedown">{{playdatas.comment.total}} 条评论</view>
+<view class="comment" wx:for="{{playdatas.comment.list}}">
+	<view class="top">
+		<view class="top1">
+			<image src="{{item.userinfo.avatar}}"></image>
+			<view class="username">{{item.userinfo.username}}</view>
+			<view>{{index+1}}小时前</view>
+		</view>
+		<text class="top2">{{item.count_approve}}人赞</text>
+	</view>
+	<view class="content">{{item.content}}</view>
 </view>

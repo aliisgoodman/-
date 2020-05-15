@@ -17,10 +17,10 @@ Page({
         this.setData({
           playdatas: res.data.data
         })
-        wx.setStorage({
-          data: JSON.stringify(res.data.data),
-          key: 'storageplaydatas',
-        })
+        // wx.setStorage({
+        //   data: JSON.stringify(res.data.data),
+        //   key: 'storageplaydatas',
+        // })
       }
     })
   },
@@ -29,15 +29,15 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.palyid);
-    let getstorageplaydatas = wx.getStorageSync('storageplaydatas')
-    if (getstorageplaydatas) {
-      getstorageplaydatas = JSON.parse(wx.getStorageSync('storageplaydatas'))
-      this.setData({
-        playdatas: getstorageplaydatas
-      })
-    } else {
+    // let getstorageplaydatas = wx.getStorageSync('storageplaydatas')
+    // if (getstorageplaydatas) {
+    //   getstorageplaydatas = JSON.parse(wx.getStorageSync('storageplaydatas'))
+    //   this.setData({
+    //     playdatas: getstorageplaydatas
+    //   })
+    // } else {
       this.getplaydatas(options.palyid)
-    }
+    // }
 
   },
 

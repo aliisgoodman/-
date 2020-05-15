@@ -12,7 +12,7 @@
 	}
 	var time = function(t) {
 		if (t) {
-			return Math.floor(t / 60) + "'" + t % 60 + '"'
+			return Math.floor(t / 60) + "'" + (t % 60 > 9 ? t % 60 : '0' + t % 60) + '"'
 		}
 	}
 	module.exports = {

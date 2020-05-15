@@ -65,6 +65,13 @@ Page({
     })
 
   },
+  gopalying(e){
+// console.log(e.currentTarget.dataset.playid);
+wx.navigateTo({
+  url: '../palying/palying?palyid='+e.currentTarget.dataset.playid,
+})
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -118,13 +125,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    setInterval(() => {
-      this.setData({
-        days: `${new Date().getMonth()+1}月${new Date().getDate()}日`,
-        times: `${new Date().getHours()}:${new Date().getMinutes()}`,
-      })
+    // setInterval(() => {
+    //   this.setData({
+    //     days: `${new Date().getMonth()+1}月${new Date().getDate()}日`,
+    //     times: `${new Date().getHours()}:${new Date().getMinutes()}`,
+    //   })
 
-    }, 60000)
+    // }, 60000)
   },
 
   /**
