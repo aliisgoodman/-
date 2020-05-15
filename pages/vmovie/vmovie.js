@@ -19,7 +19,7 @@ Page({
     wx.request({
       url: 'https://api.kele8.cn/agent/https://app.vmovier.com/apiv3/index/index',
       success: (res) => {
-
+        
         console.log(res.data.data);
         this.setData({
           album: res.data.data.album,
@@ -152,7 +152,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('xxxxx');
+    
   },
 
   /**

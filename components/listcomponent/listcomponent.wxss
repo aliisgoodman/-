@@ -48,7 +48,10 @@
 }
 .wraper .soner view{
   padding: 10px 0;
-
+width: 80%;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
 }
 .wraper:first-of-type .soner{
   font-size: 16px;
