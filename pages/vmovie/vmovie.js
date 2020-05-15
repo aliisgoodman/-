@@ -1,4 +1,6 @@
 // pages/vmovie/vmovie.js
+
+import Notify from '@vant/weapp/notify/notify';
 Page({
 
   /**
@@ -13,19 +15,20 @@ Page({
     banner: [],
     hot: [],
     posts: [],
-    today: []
+    today: [],
+    showdown:false
   },
   getindexdatas() {
     wx.request({
       url: 'https://api.kele8.cn/agent/https://app.vmovier.com/apiv3/index/index',
       success: (res) => {
-        
+
         console.log(res.data.data);
         this.setData({
           album: res.data.data.album,
           banner: res.data.data.banner,
           hot: res.data.data.hot,
-          posts: res.data.data.posts,
+          posts: [res.data.data.posts],
           today: res.data.data.today
         })
         wx.setStorage({
@@ -65,11 +68,11 @@ Page({
     })
 
   },
-  gopalying(e){
-// console.log(e.currentTarget.dataset.playid);
-wx.navigateTo({
-  url: '../palying/palying?palyid='+e.currentTarget.dataset.playid,
-})
+  gopalying(e) {
+    // console.log(e.currentTarget.dataset.playid);
+    wx.navigateTo({
+      url: '../palying/palying?palyid=' + e.currentTarget.dataset.playid,
+    })
 
   },
   /**
@@ -85,7 +88,7 @@ wx.navigateTo({
           album: storageindexdatas.datas.album,
           banner: storageindexdatas.datas.banner,
           hot: storageindexdatas.datas.hot,
-          posts: storageindexdatas.datas.posts,
+          posts: [storageindexdatas.datas.posts],
           today: storageindexdatas.datas.today
         })
       } else {
@@ -96,7 +99,7 @@ wx.navigateTo({
       this.getindexdatas()
     }
 
-// 频道
+    // 频道
     let storagechanneldata = wx.getStorageSync('channeldata')
     if (storagechanneldata) {
       storagechanneldata = JSON.parse(wx.getStorageSync('channeldata'))
@@ -155,12 +158,38 @@ wx.navigateTo({
 
   },
 
+
+
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('xxxxx');
-    
+    // this.setData({
+    //   showdown:true
+    // })
+    Notify({ type: 'warning', message: '加载中，请稍后...' });
+    let id = this.data.posts.slice(this.data.posts.length - 1)[0].next_page_url_full
+    wx.request({
+      url: 'https://api.kele8.cn/agent/' + id,
+      success: (res) => {
+
+        if (res.data.data) {
+          // this.data.posts.push(res.data.data)
+          this.setData({
+            posts:[...this.data.posts,res.data.data]
+          })
+          Notify({ type: 'success', message: '加载成功...' });
+        } else {
+          Notify('加载失败...');
+        }
+      },
+      // complete:()=>{
+      //   this.setData({
+      //     showdown:false
+      //   })
+      // }
+      
+    })
   },
 
   /**

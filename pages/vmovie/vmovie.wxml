@@ -1,11 +1,12 @@
 <!--pages/vmovie/vmovie.wxml-->
 
-<van-nav-bar left-text="{{days}}" right-text="{{times}}">
+<van-nav-bar >
+<!-- left-text="{{days}}" right-text="{{times}}" -->
 
 	<!-- <van-icon name="circle" slot="left" />
 	<van-icon name="search" slot="right" /> -->
-	<van-tabs active="{{ active }}" slot="title" animated color="#afafaf">
-		<van-tab title="发现">
+	<van-tabs active="{{ active }}" slot="title" animated color="#e04a4a"  >
+		<van-tab title="发现" >
 			<swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#fff">
 				<swiper-item wx:for="{{banner.list}}" wx:key="{{inedx}}" bindtap="gopalying" data-playid="{{item.extra_data.app_banner_param}}">
 					<image class="image" src="{{item.image}}" mode="widthFix"></image>
@@ -28,8 +29,12 @@
 					</view>
 				</swiper-item>
 			</swiper>
-			<view class="today">{{posts.selection_title}}</view>
-			<listcomponent lists="{{posts.list}}" hot="true"></listcomponent>
+
+			<!-- <view class="today">{{posts.selection_title}}</view>
+			<listcomponent lists="{{posts.list}}" hot="true"></listcomponent> -->
+
+			<downmore datas="{{posts}}"></downmore>
+			
 
 		</van-tab>
 		<van-tab title="频道">
@@ -41,6 +46,11 @@
 				</view>
 			</view>
 		</van-tab>
-		<van-tab title="我的">内容 3</van-tab>
+		<!-- <van-tab title="我的">内容 3</van-tab> -->
 	</van-tabs>
 </van-nav-bar>
+
+<view class="downloading" wx:if="{{showdown}}">
+<van-loading size="24px" color="#000" >加载中...</van-loading>
+</view>
+<van-notify id="van-notify" />

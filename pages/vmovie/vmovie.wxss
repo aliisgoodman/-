@@ -92,3 +92,6 @@ swiper .image {
   font-size: 10px;
   line-height: 2em;
 }
+.downloading{
+  padding: 10px 0;
+}

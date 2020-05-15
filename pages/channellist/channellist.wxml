@@ -7,7 +7,7 @@
 		<van-loading size="30px" vertical>加载中...</van-loading>
 	</view>
 </van-overlay>
-<!-- 下拉刷新loading -->
-<view class="downloading" hidden="{{showdown}}">
+<!-- 触底刷新loading -->
+<view class="downloading" wx:if="{{showdown}}">
 <van-loading size="24px" color="#000" >加载中...</van-loading>
 </view>

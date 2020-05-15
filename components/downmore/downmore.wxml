@@ -1,0 +1,5 @@
+<!--components/downmore/downmore.wxml-->
+<view wx:for="{{datas}}">
+	<view>{{item.selection_title}}</view>
+	<listcomponent lists="{{item.list}}" hot="true"></listcomponent>
+</view>
